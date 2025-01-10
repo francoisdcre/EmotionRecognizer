@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #bc00dd, #2d00f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+}
+
+.visage {
+    filter: brightness(0) drop-shadow(0 0 10px white) drop-shadow(0 0 20px #bc00dd);
+    position: absolute;
+    right: -350px;
+    width: 700px;
+}
