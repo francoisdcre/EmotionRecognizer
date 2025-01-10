@@ -15,8 +15,8 @@
 </ol>
 
 <h2>Competences acquises</h2>
-<ol>
+<ul>
   <li>A venir</li>
-</ol>
+</ul>
 
 <h2>Preview</h2>
