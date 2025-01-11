@@ -52,7 +52,7 @@ function Home() {
                     </div>
                     <div className='bg-gray-900 bg-opacity-50 rounded-lg shadow-lg p-6'>
                         <h2 className='text-xl underline'>Technologies Utilisées</h2>
-                        <p>Notre application est développée en utilisant les technologies suivantes: React, TailwindCSS, NodeJS, React Router ... (à ajouter...)</p>
+                        <p>Notre application est développée en utilisant les technologies suivantes: React, TailwindCSS, React Router ... (à ajouter...)</p>
                     </div>
                 </div>
             </div>
