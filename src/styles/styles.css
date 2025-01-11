@@ -26,7 +26,7 @@ html {
 .grandient-border {
     background: linear-gradient(#f8edeb, #f8edeb) padding-box,
     linear-gradient(to right, #bc00dd, #2d00f7) border-box;
-    border: 4px solid transparent;
+    border: 1px solid transparent;
 }
 
 .button:hover {
