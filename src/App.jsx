@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <nav className="text-center p-4 flex items-center justify-between text-white z-50" style={{backgroundColor: '#171718'}}>
+      <nav className="text-center p-4 flex items-center justify-between text-white z-50 fixed w-full" style={{backgroundColor: '#171718'}}>
         <p className='text-gradient'>EmotionRecognizer</p>
         <ul className='flex justify-center space-x-4'>
           <li><Link to="/">Accueil</Link></li>
