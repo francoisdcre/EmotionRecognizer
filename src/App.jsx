@@ -24,7 +24,7 @@ function App() {
       </Routes>
 
       <footer className="text-center p-4 text-white" style={{backgroundColor: '#171718'}}>
-        <p className='text-gradient'>EmotionRecognizer - 2025</p>
+        <p className='text-gradient'>EmotionRecognizer - 2025&copy;</p>
       </footer>
     </Router>
   );
