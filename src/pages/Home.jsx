@@ -18,7 +18,6 @@ function Home() {
                     <Button href="#about">En savoir plus !</Button>
                 </div>
                 <div className="blur-background"></div>
-                {/* <img src="./public/visage.png" className='visage'/> */}
                 <div className="mouse cursor-pointer" onClick={handleScroll}></div>
             </div>
             <div id='services' className='flex items-center justify-center min-h-screen flex-col gap-8' style={{backgroundColor: '#f8edeb'}}>
