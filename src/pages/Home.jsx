@@ -18,12 +18,12 @@ function Home() {
                     <div className="flex items-center justify-around h-96 max-w-72 w-full flex-col grandient-border rounded-lg">
                         <h1 className='font-bold text-2xl'>Emotion dans un texte</h1>
                         <p className='text-center'>Mettez un texte et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/TextEmotion">Découvrir</Button>
+                        <Button href="/TextEmotion">Essayer maintenant</Button>
                     </div>
                     <div className="flex items-center justify-around h-96 max-w-72 w-full flex-col grandient-border rounded-lg">
                         <h1 className='font-bold text-2xl'>Emotion dans une image</h1>
                         <p className='text-center'>Mettez une image et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/ImageEmotion">Découvrir</Button>
+                        <Button href="/ImageEmotion">Essayer maintenant</Button>
                     </div>
                 </div>
             </div>
