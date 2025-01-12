@@ -1,10 +1,10 @@
-function About() {
+function ImageEmotion() {
     return (
-        <div>
-        <h1>À propos</h1>
-        <p>Découvrez plus sur notre équipe et nos projets.</p>
+        <div className="h-dvh flex justify-center items-center flex-col">
+            <h1>Image Emotion</h1>
+            <p>Découvrez plus sur notre équipe et nos projets.</p>
         </div>
     );
 }
 
-export default About;
+export default ImageEmotion;
