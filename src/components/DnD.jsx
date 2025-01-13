@@ -8,8 +8,28 @@ function DragDrop() {
   const handleChange = (file) => {
     setFile(file);
   };
+
   return (
-    <FileUploader classes="overflow-hidden" label="Déposer une image" hoverTitle="Déposer ici" handleChange={handleChange} name="file" types={fileTypes} />
+    <div className="flex flex-col items-center gap-5 p-5">
+      <FileUploader
+        classes="overflow-hidden border-dashed border-2 border-gray-400 p-5"
+        label="Déposez une image"
+        hoverTitle="Déposez ici"
+        uploadedLabel="Fichier déposé avec succès !"
+        handleChange={handleChange}
+        name="file"
+        types={fileTypes}
+      />
+      {file && (
+        <div id="image-preview" className="mt-5 overflow-hidden grandient-border">
+          <img
+            src={URL.createObjectURL(file)}
+            alt="Preview"
+            className="overflow-hidden max-w-screen-md w-full object-cover grandient-border"
+          />
+        </div>
+      )}
+    </div>
   );
 }
 

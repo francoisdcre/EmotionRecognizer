@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import TextEmotion from './pages/TextEmotion';
 import ImageEmotion from './pages/ImageEmotion';
+import LiveEmotion from './pages/LiveEmotion';
 import NotFound from './pages/NotFound';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
@@ -13,6 +14,7 @@ function App() {
           <li><Link to="/">Accueil</Link></li>
           <li><Link to="/TextEmotion">Text Emotion</Link></li>
           <li><Link to="/ImageEmotion">Image Emotion</Link></li>
+          <li><Link to="/LiveEmotion">Live Emotion</Link></li>
         </ul>
       </nav>
 
@@ -20,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/TextEmotion" element={<TextEmotion />} />
         <Route path="/ImageEmotion" element={<ImageEmotion />} />
+        <Route path="/LiveEmotion" element={<LiveEmotion />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

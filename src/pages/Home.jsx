@@ -44,6 +44,17 @@ function Home() {
                         <Button href="/TextEmotion">Essayer maintenant</Button>
                     </div>
                 </div>
+                <hr className='grandient-border w-4/5'></hr>
+                <div className='flex flex-wrap items-center justify-around gap-5 w-full'>
+                    <div className='flex flex-col items-center justify-around gap-5'>
+                        <h1 className='text-gradient text-xl'>Emotion en temps réel</h1>
+                        <p>Allumer votre caméra et regarder vos émotions en temps réel !</p>
+                        <Button href="/LiveEmotion">Essayer maintenant</Button>
+                    </div>
+                    <div>
+                        <img src="./public/face-live.jpg" alt="Emotion dans une image" className='w-96 rounded-lg' />
+                    </div>
+                </div>
             </div>
             <div id='about' className='flex items-center justify-center min-h-screen flex-col gap-8 p-5' style={{backgroundColor: 'black'}}>
                 <Title title='À propos' />
