@@ -110,3 +110,14 @@ li:hover {
 		top: 60px;
 	}
 }
+
+.textarea {
+    background: linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(to right, #bc00dd, #2d00f7) border-box;
+    border: 2px solid transparent;
+    color: white;
+}
+
+.textarea:focus {
+    outline: none;
+}

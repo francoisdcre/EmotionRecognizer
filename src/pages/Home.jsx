@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import Title from '../components/Title';
 
 function Home() {
 
@@ -11,7 +12,7 @@ function Home() {
 
     return (
         <div className="main flex flex-col">
-            <div className="flex items-center justify-center min-h-screen text-white overflow-hidden relative p-5" style={{ backgroundColor: 'black'}}>
+            <div id='home' className="flex items-center justify-center min-h-screen text-white overflow-hidden relative p-5" style={{ backgroundColor: 'black'}}>
                 <div className="flex flex-col items-center justify-center z-10 gap-8">
                     <h1 className="text-center text-3xl font-bold text-gradient">Emotion Recognizer</h1>
                     <p className="text-center text-white max-w-lg">Découvrez les émotions qui se cachent dans un texte, ou dans une image ! Avec EMOTION RECOGNIZER </p>
@@ -21,19 +22,7 @@ function Home() {
                 <div className="mouse cursor-pointer" onClick={handleScroll}></div>
             </div>
             <div id='services' className='flex items-center justify-center min-h-screen flex-col gap-8 p-5' style={{backgroundColor: '#f8edeb'}}>
-                <h1 className='text-3xl overflow-hidden text-gradient font-bold mt-8'>Nos services</h1>
-                {/* <div className='flex flex-wrap items-center justify-center gap-5'>
-                    <div className="flex items-center justify-around h-96 max-w-72 w-full flex-col grandient-border rounded-lg">
-                        <h1 className='font-bold text-2xl'>Emotion dans un texte</h1>
-                        <p className='text-center'>Mettez un texte et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/TextEmotion">Essayer maintenant</Button>
-                    </div>
-                    <div className="flex items-center justify-around h-96 max-w-72 w-full flex-col grandient-border rounded-lg">
-                        <h1 className='font-bold text-2xl'>Emotion dans une image</h1>
-                        <p className='text-center'>Mettez une image et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/ImageEmotion">Essayer maintenant</Button>
-                    </div>
-                </div> */}
+                <Title title='Nos services' />
                 <div className='flex flex-wrap items-center justify-around gap-5 w-full'>
                     <div className='flex flex-col items-center justify-around gap-5'>
                         <h1 className='text-gradient text-xl'>Emotion dans une image</h1>
@@ -57,7 +46,7 @@ function Home() {
                 </div>
             </div>
             <div id='about' className='flex items-center justify-center min-h-screen flex-col gap-8 p-5' style={{backgroundColor: 'black'}}>
-                <h1 className='text-3xl overflow-hidden text-gradient font-bold'>À propos</h1>
+                <Title title='À propos' />
                 <div className='text-white flex flex-col items-center justify-center gap-2 max-w-lg text-center'>
                     <div className='bg-gray-900 bg-opacity-50 rounded-lg shadow-lg p-6'>
                         <h2 className='text-xl underline'>Qui sommes nous ?</h2>
