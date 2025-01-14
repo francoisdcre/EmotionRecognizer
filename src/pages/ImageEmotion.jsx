@@ -5,6 +5,7 @@ import DnD from '../components/DnD';
 
 function ImageEmotion() {
     const [imageSrc, setImageSrc] = useState(null);
+    const [noFacesDetected, setNoFacesDetected] = useState(false); // État pour afficher le message
     const canvasRef = useRef(null);
 
     // Charger les modèles au montage du composant
@@ -33,6 +34,14 @@ function ImageEmotion() {
                 .withFaceLandmarks()
                 .withFaceExpressions();
 
+            if (detections.length === 0) {
+                setNoFacesDetected(true); // Aucun visage détecté
+                console.log("Aucun visage détecté.");
+                return;
+            } else {
+                setNoFacesDetected(false); // Visage(s) détecté(s)
+            }
+
             const displaySize = { width: image.width, height: image.height };
             faceapi.matchDimensions(canvas, displaySize);
 
@@ -50,6 +59,7 @@ function ImageEmotion() {
         if (file && file.type.startsWith("image/")) {
             const imageUrl = URL.createObjectURL(file);
             setImageSrc(imageUrl);
+            setNoFacesDetected(false); // Réinitialiser l'état
         } else {
             alert("Veuillez déposer un fichier image valide.");
         }
@@ -64,8 +74,9 @@ function ImageEmotion() {
     return (
         <div className="main flex flex-col bg-black mt-10">
             <div className="min-h-screen flex justify-center items-center flex-col gap-15">
-                <div className="h-dvh flex justify-center items-center flex-col gap-8">
+                <div className="h-dvh flex justify-center items-center flex-col">
                     <Title title="Image Emotion" />
+                    <p className="text-white">Analisez les émotions dans vos images !</p>
                     <DnD onFileDrop={handleFileDrop} />
                     <div id="image-preview" className="relative mt-5">
                         {/* Affiche l'image et superpose le canvas */}
@@ -90,12 +101,22 @@ function ImageEmotion() {
                                 />
                             </div>
                         )}
+                        {/* Texte affiché si aucun visage n'est détecté */}
+                        {noFacesDetected && (
+                            <div>
+                                <p className="text-red-500 mt-5">
+                                    Aucun visage détecté dans cette image.
+                                </p>
+                                <p className="text-red-500 mt-5">
+                                    Veuillez mettre une image avec une meilleure qualité ou des visages plus proches.
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
         </div>
     );
-    
 }
 
 export default ImageEmotion;
