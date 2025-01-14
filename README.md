@@ -3,6 +3,7 @@
 <h1 align="center">Projet "EmotionRecognizer"</h1>
 
 <a href="https://emotionrecognizer.onrender.com/" target="_blank"> Visiter le site </a>
+<br>
 
 <h2>Description</h2>
 <p>Le projet <stong>EmotionRecognizer</stong> Est un projet visé pour apprendre l'utilisation de l'intelligence artificielle. Le projet permet de reconnaitre les émotions dans un texte ou dans un image.</p>
