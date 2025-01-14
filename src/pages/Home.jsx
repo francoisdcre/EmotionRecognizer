@@ -21,7 +21,7 @@ function Home() {
                 <div className="blur-background"></div>
                 <div className="mouse cursor-pointer" onClick={handleScroll}></div>
             </div>
-            <div id='services' className='flex items-center justify-center min-h-screen flex-col gap-8 p-5' style={{backgroundColor: '#f8edeb'}}>
+            <div id='services' className='flex items-center justify-center min-h-screen flex-col gap-8 p-5 mt-10' style={{backgroundColor: '#f8edeb'}}>
                 <Title title='Nos services' />
                 <div className='flex flex-wrap items-center justify-around gap-5 w-full'>
                     <div className='flex flex-col items-center justify-around gap-5'>
@@ -56,7 +56,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div id='about' className='flex items-center justify-center min-h-screen flex-col gap-8 p-5' style={{backgroundColor: 'black'}}>
+            <div id='about' className='flex items-center justify-center min-h-screen flex-col gap-8 p-5 mt-10' style={{backgroundColor: 'black'}}>
                 <Title title='À propos' />
                 <div className='text-white flex flex-col items-center justify-center gap-2 max-w-lg text-center'>
                     <div className='bg-gray-900 bg-opacity-50 rounded-lg shadow-lg p-6'>

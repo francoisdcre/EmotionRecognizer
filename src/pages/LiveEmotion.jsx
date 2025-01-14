@@ -75,7 +75,7 @@ function LiveEmotion() {
     }, []);
 
     return (
-        <div className="main flex flex-col bg-black min-h-screen justify-center items-center p-5">
+        <div className="main flex flex-col bg-black min-h-screen justify-center items-center p-5 mt-10">
             <Title title="Live Emotion" />
             <p className='text-white'>Détection d'émotion en directe avec votre caméra</p>
             <div className="relative live-emotion">

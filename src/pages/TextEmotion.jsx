@@ -69,7 +69,7 @@ function TextEmotion() {
     };
 
     return (
-        <div className="main flex flex-col bg-black text-white">
+        <div className="main flex flex-col bg-black text-white mt-10">
             <div className="min-h-screen flex justify-center items-center flex-col gap-12">
                 <Title title="Text Emotion" />
                 {/* Formulaire */}
