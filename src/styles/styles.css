@@ -121,3 +121,13 @@ li:hover {
 .textarea:focus {
     outline: none;
 }
+
+.live-emotion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.live-emotion canvas {
+    position: absolute;
+}
