@@ -32,7 +32,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository }}:latest # Utilise GitHub Container Registry (GHCR)
+        tags: ghcr.io/francoisdcre/emotionrecognizer:latest
 
     # Étape 5 : Déployer sur Render
     - name: Deploy to Render
