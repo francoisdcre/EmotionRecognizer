@@ -1,5 +1,7 @@
 [![Deploy to Render](https://github.com/francoisdcre/EmotionRecognizer/actions/workflows/deploy.yml/badge.svg)](https://github.com/francoisdcre/EmotionRecognizer/actions/workflows/deploy.yml)
 [![Website Status](https://img.shields.io/website-up-down-green-red/https/emotionrecognizer.onrender.com.svg)](https://emotionrecognizer.onrender.com/)
+[![Website Status](https://img.shields.io/badge/status-up-46B546.svg)](https://emotionrecognizer.onrender.com/)
+
 
 <h1 align="center">Projet "EmotionRecognizer"</h1>
 
