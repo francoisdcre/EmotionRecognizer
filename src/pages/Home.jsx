@@ -30,13 +30,13 @@ function Home() {
                         <Button href="/ImageEmotion">Essayer maintenant</Button>
                     </div>
                     <div>
-                        <img src="./public/face.jpg" alt="Emotion dans une image" className='w-96 rounded-lg' />
+                        <img src="/face.jpg" alt="Emotion dans une image" className='w-96 rounded-lg' />
                     </div>
                 </div>
                 <hr className='grandient-border w-4/5'></hr>
                 <div className='flex flex-wrap-reverse items-center justify-around gap-5 w-full'>
                     <div>
-                        <img src="./public/text.jpg" alt="Emotion dans un texte" className='w-96 rounded-lg' />
+                        <img src="/text.jpg" alt="Emotion dans un texte" className='w-96 rounded-lg' />
                     </div>
                     <div className='flex flex-col items-center justify-around gap-5'>
                         <h1 className='text-gradient text-xl'>Emotion dans un texte</h1>
@@ -52,7 +52,7 @@ function Home() {
                         <Button href="/LiveEmotion">Essayer maintenant</Button>
                     </div>
                     <div>
-                        <img src="./public/face-live.jpg" alt="Emotion dans une image" className='w-96 rounded-lg' />
+                        <img src="/face-live.jpg" alt="Emotion dans une image" className='w-96 rounded-lg' />
                     </div>
                 </div>
             </div>
