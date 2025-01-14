@@ -1,5 +1,7 @@
-<h1 align="center">Projet "EmotionRecognizer"</h1>
 [![Deploy to Render](https://github.com/francoisdcre/EmotionRecognizer/actions/workflows/deploy.yml/badge.svg)](https://github.com/francoisdcre/EmotionRecognizer/actions/workflows/deploy.yml)
+
+<h1 align="center">Projet "EmotionRecognizer"</h1>
+
 <a href="https://emotionrecognizer.onrender.com/" target="_blank"> Visiter le site </a>
 
 <h2>Description</h2>
