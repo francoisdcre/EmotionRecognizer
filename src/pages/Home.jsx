@@ -14,7 +14,7 @@ function Home() {
         <div className="main flex flex-col">
             <div id='home' className="flex items-center justify-center min-h-screen text-white overflow-hidden relative p-5" style={{ backgroundColor: 'black'}}>
                 <div className="flex flex-col items-center justify-center z-10 gap-8">
-                    <h1 className="text-center text-3xl font-bold text-gradient">Dev Test</h1>
+                    <h1 className="text-center text-3xl font-bold text-gradient">Emotion Recognizer</h1>
                     <p className="text-center text-white max-w-lg">Découvrez les émotions qui se cachent dans un texte, ou dans une image ! Avec EMOTION RECOGNIZER </p>
                     <Button href="#about">En savoir plus !</Button>
                 </div>
