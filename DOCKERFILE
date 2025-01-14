@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Construire l'application
-RUN npx serve dist
+RUN npm run start
 
 # Étape 2 : Servir l'application avec Nginx
 FROM nginx:alpine
