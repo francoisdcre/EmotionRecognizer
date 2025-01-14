@@ -1,9 +1,4 @@
-<a href="https://github.com/francoisdcre/EmotionRecognizer/actions/workflows/deploy.yml">
-  <img src="https://github.com/francoisdcre/EmotionRecognizer/actions/workflows/deploy.yml/badge.svg" alt="Deploy to Render" style="width: 120px;">
-</a>
-<a href="https://emotionrecognizer.onrender.com/">
-  <img src="https://img.shields.io/badge/status-up-46B546.svg" alt="Website Status" style="width: 120px;">
-</a>
+[![Deploy to Render](https://github.com/francoisdcre/EmotionRecognizer/actions/workflows/deploy.yml/badge.svg)](https://github.com/francoisdcre/EmotionRecognizer/actions/workflows/deploy.yml)
 
 <h1 align="center">Projet "EmotionRecognizer"</h1>
 
