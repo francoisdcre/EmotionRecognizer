@@ -1,7 +1,7 @@
 import React from "react";
 import { FileUploader } from "react-drag-drop-files";
 
-const fileTypes = ["JPG", "PNG"];
+const fileTypes = ["JPG", "PNG", "WEBP"];
 
 function DragDrop({ onFileDrop }) {
     const handleChange = (file) => {
