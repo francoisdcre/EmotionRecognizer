@@ -1,6 +1,6 @@
 import Button from '../components/Button';
 import Title from '../components/Title';
-
+import { Link } from "react-router-dom";
 function Home() {
 
     const handleScroll = () => {
@@ -27,7 +27,14 @@ function Home() {
                     <div className='flex flex-col items-center justify-around gap-5'>
                         <h1 className='text-gradient text-xl'>Emotion dans un texte</h1>
                         <p>Mettez un texte et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/TextEmotion" data-discover="true">Essayer maintenant</Button>
+                        <Link
+                            to="/TextEmotion"
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full button text-center cursor-pointer"
+                            style={{ transition: "transform 0.2s ease-in-out" }}
+                            data-discover="true"
+                        >
+                            Essayer maintenant
+                        </Link>
                     </div>
                     <div>
                         <img src="/text.jpg" alt="Emotion dans un texte" className='w-96 rounded-lg' />
@@ -41,7 +48,14 @@ function Home() {
                     <div className='flex flex-col items-center justify-around gap-5'>
                     <h1 className='text-gradient text-xl'>Emotion dans une image</h1>
                         <p>Mettez une image et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/ImageEmotion" data-discover="true">Essayer maintenant</Button>
+                        <Link
+                            to="/ImageEmotion"
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full button text-center cursor-pointer"
+                            style={{ transition: "transform 0.2s ease-in-out" }}
+                            data-discover="true"
+                        >
+                            Essayer maintenant
+                        </Link>
                     </div>
                 </div>
                 <hr className='grandient-border w-4/5'></hr>
@@ -49,7 +63,14 @@ function Home() {
                     <div className='flex flex-col items-center justify-around gap-5'>
                         <h1 className='text-gradient text-xl'>Emotion en temps réel</h1>
                         <p>Allumer votre caméra et regarder vos émotions en temps réel !</p>
-                        <Button href="/LiveEmotion" data-discover="true">Essayer maintenant</Button>
+                        <Link
+                            to="/LiveEmotion"
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full button text-center cursor-pointer"
+                            style={{ transition: "transform 0.2s ease-in-out" }}
+                            data-discover="true"
+                        >
+                            Essayer maintenant
+                        </Link>
                     </div>
                     <div>
                         <img src="/face-live.jpg" alt="Emotion dans une image" className='w-96 rounded-lg' />
