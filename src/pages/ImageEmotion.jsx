@@ -8,6 +8,17 @@ function ImageEmotion() {
     const [noFacesDetected, setNoFacesDetected] = useState(false); // État pour afficher le message
     const canvasRef = useRef(null);
 
+    // Traductions des émotions avec émojis
+    const emotionTranslations = {
+        happy: 'heureux 😊',
+        sad: 'triste 😢',
+        angry: 'en colère 😡',
+        surprised: 'surpris 😮',
+        neutral: 'neutre 😐',
+        disgusted: 'dégoûté 🤢',
+        fearful: 'peur 😱',
+    };
+
     // Charger les modèles au montage du composant
     useEffect(() => {
         const loadModels = async () => {
@@ -47,10 +58,33 @@ function ImageEmotion() {
 
             const resizedDetections = faceapi.resizeResults(detections, displaySize);
 
-            canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
             faceapi.draw.drawDetections(canvas, resizedDetections);
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
-            faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+
+            // Dessiner les émotions traduites avec émojis
+            resizedDetections.forEach((detection) => {
+                const { x, y } = detection.detection.box;
+                const expressions = detection.expressions;
+                const sortedEmotions = Object.entries(expressions).sort(
+                    (a, b) => b[1] - a[1]
+                ); // Trier par score décroissant
+                const topEmotion = sortedEmotions[0]; // Émotion la plus probable
+                if (topEmotion) {
+                    const [emotion, score] = topEmotion;
+                    const translatedEmotion =
+                        emotionTranslations[emotion] || emotion; // Traduire en français
+                    ctx.fillStyle = 'red';
+                    ctx.font = '16px Arial';
+                    ctx.fillText(
+                        `${translatedEmotion} (${Math.round(score * 100)}%)`,
+                        x,
+                        y - 10
+                    );
+                }
+            });
         }
     };
 
@@ -78,7 +112,7 @@ function ImageEmotion() {
                     <Title title="Image Emotion" />
                     <p className="text-white">Analisez les émotions dans vos images !</p>
                     <DnD onFileDrop={handleFileDrop} />
-                    <div id="image-preview" className="relative mt-5">
+                    <div id="image-preview" className="relative mt-5 p-5">
                         {/* Affiche l'image et superpose le canvas */}
                         {imageSrc && (
                             <div className="relative flex flex-col items-center gap-5 max-w-2xl">

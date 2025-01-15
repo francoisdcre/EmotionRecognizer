@@ -6,6 +6,18 @@ function LiveEmotion() {
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
 
+    // Traductions des émotions
+    const emotionTranslations = {
+        happy: 'heureux 😊',
+        sad: 'triste 😢',
+        angry: 'en colère 😡',
+        surprised: 'surpris 😮',
+        neutral: 'neutre 😐',
+        disgusted: 'dégoûté 🤢',
+        fearful: 'peur 😱',
+    };
+    
+
     useEffect(() => {
         const loadModels = async () => {
             try {
@@ -48,11 +60,33 @@ function LiveEmotion() {
 
                     const resizedDetections = faceapi.resizeResults(detections, displaySize);
 
-                    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+                    const ctx = canvas.getContext('2d');
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
                     faceapi.draw.drawDetections(canvas, resizedDetections);
                     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
-                    faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+
+                    // Traduire et afficher les émotions détectées
+                    resizedDetections.forEach((detection) => {
+                        const { x, y } = detection.detection.box;
+                        const expressions = detection.expressions;
+                        const sortedEmotions = Object.entries(expressions).sort(
+                            (a, b) => b[1] - a[1]
+                        ); // Trier par score décroissant
+                        const topEmotion = sortedEmotions[0]; // Émotion la plus probable
+                        if (topEmotion) {
+                            const [emotion, score] = topEmotion;
+                            const translatedEmotion =
+                                emotionTranslations[emotion] || emotion; // Traduire en français
+                            ctx.fillStyle = 'red';
+                            ctx.font = '16px Arial';
+                            ctx.fillText(
+                                `${translatedEmotion} (${Math.round(score * 100)}%)`,
+                                x,
+                                y - 10
+                            );
+                        }
+                    });
                 }
             }, 300);
 
@@ -75,23 +109,21 @@ function LiveEmotion() {
     }, []);
 
     return (
-        <div className="main flex flex-col bg-black min-h-screen justify-center items-center p-5 mt-10">
+        <div className="main flex flex-col bg-black min-h-screen justify-center items-center p-5 mt-10 gap-5">
             <Title title="Live Emotion" />
-            <p className='text-white'>Détection d'émotion en directe avec votre caméra</p>
-            <div className="relative live-emotion">
+            <p className="text-white">Détection d'émotion en directe avec votre caméra</p>
+            <div className="live-emotion">
                 <video
                     ref={videoRef}
                     autoPlay
                     muted
-                    style={{ width: '720px', height: '560px' }}
                 />
                 <canvas
                     ref={canvasRef}
-                    className="absolute"
-                    style={{ width: '640px', height: '480px' }}
                 />
             </div>
         </div>
+
     );
 }
 

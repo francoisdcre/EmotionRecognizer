@@ -8,6 +8,28 @@ import { query } from "../API"; // Importe la fonction d'appel à l'API
 // Enregistrement des composants nécessaires pour Chart.js
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+// Mapping des étiquettes d'émotions (anglais -> français avec emojis)
+const emotionLabels = {
+    neutral: "Neutre 😐",
+    surprise: "Surprise 😲",
+    sadness: "Tristesse 😢",
+    joy: "Joie 😊",
+    anger: "Colère 😡",
+    disgust: "Dégoût 🤢",
+    fear: "Peur 😨",
+};
+
+// Mapping des couleurs par émotion
+const emotionColors = {
+    neutral: "#FF6384",  // Rouge
+    surprise: "#36A2EB", // Bleu
+    sadness: "#FFCE56",  // Jaune
+    joy: "#4BC0C0",      // Vert clair
+    anger: "#9966FF",    // Violet
+    disgust: "#FF9F40",  // Orange
+    fear: "#C9CBCF",     // Gris
+};
+
 function TextEmotion() {
     const [text, setText] = useState(""); // État pour stocker le texte saisi
     const [loading, setLoading] = useState(false); // État pour indiquer que l'analyse est en cours
@@ -26,8 +48,9 @@ function TextEmotion() {
             // Vérifiez que les données sont bien structurées
             if (result && Array.isArray(result) && Array.isArray(result[0])) {
                 // Prépare les données pour le graphique
-                const labels = result[0].map((emotion) => emotion.label); // Labels des émotions
+                const labels = result[0].map((emotion) => emotionLabels[emotion.label] || emotion.label); // Traduire les labels
                 const scores = result[0].map((emotion) => emotion.score * 100); // Scores des émotions (en pourcentage)
+                const backgroundColors = result[0].map((emotion) => emotionColors[emotion.label]); // Couleurs définies
 
                 // Définit les données du graphique
                 setChartData({
@@ -36,24 +59,8 @@ function TextEmotion() {
                         {
                             label: "Scores des émotions (%)",
                             data: scores,
-                            backgroundColor: [
-                                "#FF6384",
-                                "#36A2EB",
-                                "#FFCE56",
-                                "#4BC0C0",
-                                "#9966FF",
-                                "#FF9F40",
-                                "#C9CBCF",
-                            ],
-                            hoverBackgroundColor: [
-                                "#FF6384",
-                                "#36A2EB",
-                                "#FFCE56",
-                                "#4BC0C0",
-                                "#9966FF",
-                                "#FF9F40",
-                                "#C9CBCF",
-                            ],
+                            backgroundColor: backgroundColors, // Couleurs spécifiques
+                            hoverBackgroundColor: backgroundColors, // Même couleur pour le hover
                         },
                     ],
                 });
@@ -93,7 +100,7 @@ function TextEmotion() {
                 {chartData && (
                     <div className="w-6/12 flex flex-col items-center justify-center gap-8">
                         <Title title="Résultats des émotions" />
-                        <div className="w-96">
+                        <div className="w-full flex justify-center items-center max-w-lg">
                             <Doughnut data={chartData} />
                         </div>
                     </div>

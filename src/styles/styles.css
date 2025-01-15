@@ -118,16 +118,52 @@ li:hover {
     color: white;
 }
 
+@media screen and (max-width: 900px) {
+    .textarea {
+        width: 100% !important;
+        height: 300px !important;
+    }
+}
+
 .textarea:focus {
     outline: none;
 }
 
 .live-emotion {
+    position: relative;
+    width: 100%; /* Occupe toute la largeur disponible */
+    max-width: 720px; /* Largeur maximale (vidéo d'origine) */
+    aspect-ratio: 16 / 9; /* Maintient le ratio largeur/hauteur */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.live-emotion video,
 .live-emotion canvas {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Adapte la taille à la largeur de .live-emotion */
+    height: 100%; /* Adapte la hauteur automatiquement */
+}
+
+@media (max-width: 768px) {
+    .live-emotion {
+        max-width: 100%; /* Réduit la largeur pour les petits écrans */
+        aspect-ratio: 16 / 9; /* Conserve le ratio */
+    }
+
+    .live-emotion video,
+    .live-emotion canvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .live-emotion {
+        max-width: 100%; /* Toujours pleine largeur */
+        aspect-ratio: 4 / 3; /* Ratio modifié pour les très petits écrans */
+    }
 }
