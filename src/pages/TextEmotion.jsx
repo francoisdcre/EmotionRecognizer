@@ -21,14 +21,40 @@ const emotionLabels = {
 
 // Mapping des couleurs par émotion
 const emotionColors = {
-    neutral: "#FF6384",  // Rouge
+    neutral: "#FF6384", // Rouge
     surprise: "#36A2EB", // Bleu
-    sadness: "#FFCE56",  // Jaune
-    joy: "#4BC0C0",      // Vert clair
-    anger: "#9966FF",    // Violet
-    disgust: "#FF9F40",  // Orange
-    fear: "#C9CBCF",     // Gris
+    sadness: "#FFCE56", // Jaune
+    joy: "#4BC0C0", // Vert clair
+    anger: "#9966FF", // Violet
+    disgust: "#FF9F40", // Orange
+    fear: "#C9CBCF", // Gris
 };
+
+// Fonction pour traduire un texte avec LibreTranslate
+const translateText = async (text, sourceLang = "fr", targetLang = "en") => {
+    try {
+        const response = await fetch(
+            `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`
+        );
+
+        if (!response.ok) {
+            throw new Error(`Erreur de traduction : ${response.status} ${response.statusText}`);
+        }
+
+        const result = await response.json();
+
+        if (result.responseStatus !== 200) {
+            throw new Error(`Erreur de traduction : ${result.responseDetails}`);
+        }
+
+        return result.responseData.translatedText; // Texte traduit
+    } catch (error) {
+        console.error("Erreur lors de la traduction :", error);
+        throw new Error("Impossible de traduire le texte.");
+    }
+};
+
+
 
 function TextEmotion() {
     const [text, setText] = useState(""); // État pour stocker le texte saisi
@@ -39,28 +65,32 @@ function TextEmotion() {
     const handleClick = async () => {
         setLoading(true);
         setError("");
-
+    
         try {
-            console.log("Texte envoyé à l'API :", text); // Affiche le texte envoyé à l'API
-            const result = await query({ inputs: text }); // Appel à l'API avec le texte saisi
-            console.log("Résultat brut de l'API :", result); // Affiche le résultat brut de l'API dans la console
-
+            console.log("Texte original (français) :", text);
+    
+            // Traduction du texte en anglais
+            const translatedText = await translateText(text, "fr", "en");
+            console.log("Texte traduit (anglais) :", translatedText);
+    
+            // Analyse des émotions sur le texte traduit
+            const result = await query({ inputs: translatedText });
+            console.log("Résultat brut de l'API :", result);
+    
             // Vérifiez que les données sont bien structurées
             if (result && Array.isArray(result) && Array.isArray(result[0])) {
-                // Prépare les données pour le graphique
-                const labels = result[0].map((emotion) => emotionLabels[emotion.label] || emotion.label); // Traduire les labels
-                const scores = result[0].map((emotion) => emotion.score * 100); // Scores des émotions (en pourcentage)
-                const backgroundColors = result[0].map((emotion) => emotionColors[emotion.label]); // Couleurs définies
-
-                // Définit les données du graphique
+                const labels = result[0].map((emotion) => emotionLabels[emotion.label] || emotion.label);
+                const scores = result[0].map((emotion) => emotion.score * 100);
+                const backgroundColors = result[0].map((emotion) => emotionColors[emotion.label]);
+    
                 setChartData({
                     labels: labels,
                     datasets: [
                         {
                             label: "Scores des émotions (%)",
                             data: scores,
-                            backgroundColor: backgroundColors, // Couleurs spécifiques
-                            hoverBackgroundColor: backgroundColors, // Même couleur pour le hover
+                            backgroundColor: backgroundColors,
+                            hoverBackgroundColor: backgroundColors,
                         },
                     ],
                 });
@@ -68,12 +98,13 @@ function TextEmotion() {
                 throw new Error("Résultats inattendus de l'API.");
             }
         } catch (err) {
-            console.error("Erreur lors de l'analyse des émotions :", err); // Affiche l'erreur dans la console
-            setError("Erreur lors de l'analyse des émotions."); // Définit un message d'erreur
+            console.error("Erreur lors de l'analyse des émotions :", err);
+            setError(err.message);
         } finally {
-            setLoading(false); // Arrête l'indicateur de chargement
+            setLoading(false);
         }
     };
+    
 
     return (
         <div className="main flex flex-col bg-black text-white mt-10">
@@ -85,8 +116,8 @@ function TextEmotion() {
                     <textarea
                         className="p-2 rounded-lg w-6/12 h-32 textarea"
                         placeholder="Entrez votre texte ici"
-                        value={text} // Liaison avec l'état du texte
-                        onChange={(e) => setText(e.target.value)} // Met à jour l'état avec le texte saisi
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
                     ></textarea>
                     <Button className="w-6/12" onClick={handleClick} disabled={loading}>
                         {loading ? "Analyse en cours..." : "Envoyer"}
