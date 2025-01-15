@@ -25,23 +25,23 @@ function Home() {
                 <Title title='Nos services' />
                 <div className='flex flex-wrap items-center justify-around gap-5 w-full'>
                     <div className='flex flex-col items-center justify-around gap-5'>
-                        <h1 className='text-gradient text-xl'>Emotion dans une image</h1>
-                        <p>Mettez une image et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/ImageEmotion">Essayer maintenant</Button>
+                        <h1 className='text-gradient text-xl'>Emotion dans un texte</h1>
+                        <p>Mettez un texte et l'IA se charge de vous informer les émotions dans le texte !</p>
+                        <Button href="/TextEmotion">Essayer maintenant</Button>
                     </div>
                     <div>
-                        <img src="/face.jpg" alt="Emotion dans une image" className='w-96 rounded-lg' />
+                        <img src="/text.jpg" alt="Emotion dans un texte" className='w-96 rounded-lg' />
                     </div>
                 </div>
                 <hr className='grandient-border w-4/5'></hr>
                 <div className='flex flex-wrap-reverse items-center justify-around gap-5 w-full'>
                     <div>
-                        <img src="/text.jpg" alt="Emotion dans un texte" className='w-96 rounded-lg' />
+                        <img src="/face.jpg" alt="Emotion dans une image" className='w-96 rounded-lg' />
                     </div>
                     <div className='flex flex-col items-center justify-around gap-5'>
-                        <h1 className='text-gradient text-xl'>Emotion dans un texte</h1>
-                        <p>Mettez un texte et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/TextEmotion">Essayer maintenant</Button>
+                    <h1 className='text-gradient text-xl'>Emotion dans une image</h1>
+                        <p>Mettez une image et l'IA se charge de vous informer les émotions dans le texte !</p>
+                        <Button href="/ImageEmotion">Essayer maintenant</Button>
                     </div>
                 </div>
                 <hr className='grandient-border w-4/5'></hr>

@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as faceapi from 'face-api.js';
 import Title from '../components/Title';
 
 function LiveEmotion() {
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
+    const [message, setMessage] = useState(''); // État pour afficher un message
 
     // Traductions des émotions
     const emotionTranslations = {
@@ -16,7 +17,6 @@ function LiveEmotion() {
         disgusted: 'dégoûté 🤢',
         fearful: 'peur 😱',
     };
-    
 
     useEffect(() => {
         const loadModels = async () => {
@@ -63,30 +63,35 @@ function LiveEmotion() {
                     const ctx = canvas.getContext('2d');
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                    faceapi.draw.drawDetections(canvas, resizedDetections);
-                    faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+                    if (resizedDetections.length === 0) {
+                        setMessage('Aucun visage détecté.'); // Afficher un message si aucun visage n'est détecté
+                    } else {
+                        setMessage(''); // Réinitialiser le message si un visage est détecté
+                        faceapi.draw.drawDetections(canvas, resizedDetections);
+                        faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
 
-                    // Traduire et afficher les émotions détectées
-                    resizedDetections.forEach((detection) => {
-                        const { x, y } = detection.detection.box;
-                        const expressions = detection.expressions;
-                        const sortedEmotions = Object.entries(expressions).sort(
-                            (a, b) => b[1] - a[1]
-                        ); // Trier par score décroissant
-                        const topEmotion = sortedEmotions[0]; // Émotion la plus probable
-                        if (topEmotion) {
-                            const [emotion, score] = topEmotion;
-                            const translatedEmotion =
-                                emotionTranslations[emotion] || emotion; // Traduire en français
-                            ctx.fillStyle = 'red';
-                            ctx.font = '30px Arial';
-                            ctx.fillText(
-                                `${translatedEmotion} (${Math.round(score * 100)}%)`,
-                                x,
-                                y - 30
-                            );
-                        }
-                    });
+                        // Traduire et afficher les émotions détectées
+                        resizedDetections.forEach((detection) => {
+                            const { x, y } = detection.detection.box;
+                            const expressions = detection.expressions;
+                            const sortedEmotions = Object.entries(expressions).sort(
+                                (a, b) => b[1] - a[1]
+                            ); // Trier par score décroissant
+                            const topEmotion = sortedEmotions[0]; // Émotion la plus probable
+                            if (topEmotion) {
+                                const [emotion, score] = topEmotion;
+                                const translatedEmotion =
+                                    emotionTranslations[emotion] || emotion; // Traduire en français
+                                ctx.fillStyle = 'red';
+                                ctx.font = '20px Arial';
+                                ctx.fillText(
+                                    `${translatedEmotion} (${Math.round(score * 100)}%)`,
+                                    x,
+                                    y - 30
+                                );
+                            }
+                        });
+                    }
                 }
             }, 300);
 
@@ -122,8 +127,11 @@ function LiveEmotion() {
                     ref={canvasRef}
                 />
             </div>
+            {/* Message en dessous */}
+            {message && (
+                <p className="text-red-500 text-center mt-5">{message}</p>
+            )}
         </div>
-
     );
 }
 
