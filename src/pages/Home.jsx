@@ -27,7 +27,7 @@ function Home() {
                     <div className='flex flex-col items-center justify-around gap-5'>
                         <h1 className='text-gradient text-xl'>Emotion dans un texte</h1>
                         <p>Mettez un texte et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/TextEmotion">Essayer maintenant</Button>
+                        <Button href="/TextEmotion" data-discover="true">Essayer maintenant</Button>
                     </div>
                     <div>
                         <img src="/text.jpg" alt="Emotion dans un texte" className='w-96 rounded-lg' />
@@ -41,7 +41,7 @@ function Home() {
                     <div className='flex flex-col items-center justify-around gap-5'>
                     <h1 className='text-gradient text-xl'>Emotion dans une image</h1>
                         <p>Mettez une image et l'IA se charge de vous informer les émotions dans le texte !</p>
-                        <Button href="/ImageEmotion">Essayer maintenant</Button>
+                        <Button href="/ImageEmotion" data-discover="true">Essayer maintenant</Button>
                     </div>
                 </div>
                 <hr className='grandient-border w-4/5'></hr>
@@ -49,7 +49,7 @@ function Home() {
                     <div className='flex flex-col items-center justify-around gap-5'>
                         <h1 className='text-gradient text-xl'>Emotion en temps réel</h1>
                         <p>Allumer votre caméra et regarder vos émotions en temps réel !</p>
-                        <Button href="/LiveEmotion">Essayer maintenant</Button>
+                        <Button href="/LiveEmotion" data-discover="true">Essayer maintenant</Button>
                     </div>
                     <div>
                         <img src="/face-live.jpg" alt="Emotion dans une image" className='w-96 rounded-lg' />
