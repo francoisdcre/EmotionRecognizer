@@ -79,11 +79,11 @@ function LiveEmotion() {
                             const translatedEmotion =
                                 emotionTranslations[emotion] || emotion; // Traduire en français
                             ctx.fillStyle = 'red';
-                            ctx.font = '16px Arial';
+                            ctx.font = '30px Arial';
                             ctx.fillText(
                                 `${translatedEmotion} (${Math.round(score * 100)}%)`,
                                 x,
-                                y - 10
+                                y - 30
                             );
                         }
                     });

@@ -167,3 +167,39 @@ li:hover {
         aspect-ratio: 4 / 3; /* Ratio modifié pour les très petits écrans */
     }
 }
+
+#image-preview {
+    display: flex; /* Aligne les enfants horizontalement */
+    flex-direction: column; /* Organise les enfants verticalement */
+    align-items: center; /* Centre les enfants horizontalement */
+    justify-content: center; /* Centre les enfants verticalement */
+    gap: 15px; /* Espacement entre les enfants */
+    width: 100%; /* Adapte à la largeur disponible */
+    max-width: 640px; /* Largeur maximale */
+    margin: 0 auto; /* Centre le conteneur */
+}
+
+.image-container {
+    position: relative; /* Permet la superposition d'éléments */
+    width: 100%; /* Adapte à la largeur de #image-preview */
+    aspect-ratio: 4 / 3; /* Assure un ratio constant */
+}
+
+.image-container img,
+.image-container canvas {
+    position: absolute; /* Superpose les éléments */
+    top: 0;
+    left: 0;
+    width: 100%; /* Adapte à la largeur du conteneur parent */
+    height: 100%; /* Adapte à la hauteur du conteneur parent */
+    object-fit: contain; /* Maintient les proportions */
+}
+
+.image-container canvas {
+    z-index: 2; /* Place le canvas au-dessus de l'image */
+    pointer-events: none; /* Désactive les interactions */
+}
+
+.image-container img {
+    z-index: 1; /* Place l'image en dessous du canvas */
+}
