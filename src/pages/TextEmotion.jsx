@@ -95,7 +95,7 @@ function TextEmotion() {
                     ],
                 });
             } else {
-                throw new Error("Résultats inattendus de l'API.");
+                throw new Error("Résultats inattendus de l'API, veuillez attendre que l'API charge ou veuillez recharger la page.");
             }
         } catch (err) {
             console.error("Erreur lors de l'analyse des émotions :", err);
