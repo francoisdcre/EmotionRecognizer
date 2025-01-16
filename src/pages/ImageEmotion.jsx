@@ -163,7 +163,7 @@ function ImageEmotion() {
             <div className="min-h-screen flex justify-center items-center flex-col gap-15">
                 <div className="h-dvh flex justify-center items-center flex-col">
                     <Title title="Image Emotion" />
-                    <p className="text-white">Analyses les émotions dans vos images ou capturez une photo !</p>
+                    <p className="text-white">Analysez les émotions dans vos images ou capturez une photo !</p>
                     <DnD onFileDrop={handleFileDrop} />
                     <div id="image-preview">
                         {/* Activer la caméra */}

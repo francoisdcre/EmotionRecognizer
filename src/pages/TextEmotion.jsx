@@ -110,7 +110,7 @@ function TextEmotion() {
         <div className="main flex flex-col bg-black text-white mt-10">
             <div className="min-h-screen flex justify-center items-center flex-col">
                 <Title title="Text Emotion" />
-                <p className="text-chite">Analisez les émotions dans vos textes !</p>
+                <p className="text-chite">Analysez les émotions dans vos textes !</p>
                 {/* Formulaire */}
                 <div className="flex flex-col gap-5 w-9/12 items-center justify-center p-5">
                     <textarea
