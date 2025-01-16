@@ -26,6 +26,3 @@
 </ul>
 
 <h2>Preview</h2>
-
-:sad:
-:recycle:
