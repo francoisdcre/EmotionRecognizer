@@ -93,7 +93,7 @@ function LiveEmotion() {
                         });
                     }
                 }
-            }, 100);
+            }, 300);
 
             return () => clearInterval(interval);
         };
