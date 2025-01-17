@@ -86,7 +86,7 @@ function ImageEmotion() {
                     const [emotion, probability] = topEmotion;
                     const translatedEmotion =
                         emotionTranslations[emotion] || emotion; // Traduction ou garder l'original
-                    ctx.font = "30px Arial";
+                    ctx.font = "20px Arial";
                     ctx.fillStyle = "red";
                     ctx.fillText(
                         `${translatedEmotion} (${Math.round(probability * 100)}%)`,
