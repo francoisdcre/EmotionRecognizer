@@ -84,6 +84,7 @@
 <p>Exécutez la commande suivante : npm run start</p>
 
 <h2>Preview</h2>
+
 ![image](https://github.com/user-attachments/assets/6f34a4dc-f5cf-42a4-bb4b-21b63f9d02c9)
 ![image](https://github.com/user-attachments/assets/2b1d8d7a-d099-4631-8ca2-0f17432b36fb)
 ![image](https://github.com/user-attachments/assets/441eae99-3963-4bd1-961b-11e76702782a)
